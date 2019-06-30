@@ -39,14 +39,11 @@ class Login extends Component {
 
   render() {
     if (localStorage.getItem('location') == "search" || localStorage.getItem('location') == "planetDetails") {
-      console.log("Mere wala", localStorage.getItem('loggedIn'));
-      console.log(localStorage.getItem('userName'));
       localStorage.setItem('loggedIn', true);
       this.props.history.push("search");
     }
     else {
       localStorage.removeItem('loggedIn');
-      console.log("Called else");
     }
 
     return (
