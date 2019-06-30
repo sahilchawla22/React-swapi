@@ -53,7 +53,7 @@ class Search extends Component {
                     this.setState({ planetResults: [], showLoader: false, errorMessage: true });
                 }
             });
-    }, 2000);
+    }, 750);
 
     handleFullDetails(e, itemName) {
         e.preventDefault();
@@ -113,23 +113,27 @@ class Search extends Component {
         var unknownPopulationPlanets = arrUnknown.map((item, index) => {
             var count = 1 + index;
             return (
+                <i>
                 <div style={{ display: "flex", flex: 1, flexGrow: 0, flexDirection: "column", width: `600px` }}>
                     <span onClick={e => this.handleFullDetails(e, item.name)} style={{ display: "flex", flex: 1, flexGrow: 0, width: `300px` }}>{count}) Name: {item.name}</span>
-                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `300px`, backgroundColor: "red" }}>Population: {item.population}</span>
+                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `250px`, backgroundColor: "red",  borderRadius: "5px", margin:"10px" }}>Population: {item.population}</span>
                 </div>
+                </i>
             );
         }
         );
 
         arrFinalProper.sort((a, b) => (Number(a.population) > Number(b.population)) ? 1 : -1);
         var knownPopulationPlanets = arrFinalProper.map((item, index) => {
-            var temp = (index + 10) * 50;
+            var temp = (index + 10) * 30;
             var count = (unknownPopulationPlanets.length + 1) + index;
             return (
+                <i>
                 <div style={{ display: "flex", flex: 1, flexGrow: 0, flexDirection: "column", width: `600px` }}>
                     <span onClick={e => this.handleFullDetails(e, item.name)} style={{ display: "flex", flex: 1, flexGrow: 0, width: `300px` }}>{count}) Name: {item.name}</span>
-                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `${temp}px`, backgroundColor: "green" }}>Population: {Number(item.population)}</span>
+                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `${temp}px`, backgroundColor: "green",  borderRadius: "5px", margin:"5px" }}>Population: {Number(item.population)}</span>
                 </div>
+                </i>
             );
         }
         );
@@ -137,23 +141,47 @@ class Search extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <input type="button" name="logoutButton" value="Logout" onClick={this.handleLogout} />
-                    <h1>Search Planets</h1>
+                    <input type="button" name="logoutButton" value="Logout" onClick={this.handleLogout} style={{
+                        fontSize: "16px",
+                        borderRadius: "30px",
+                        backgroundColor: "#4CAF50",
+                        border: "none",
+                        color: "white",
+                        padding: "11px 32px",
+                        textDecoration: "none",
+                        margin: "45px 0px 10px 0px",
+                        cursor: "pointer"
+                    }} />
+                    <h1><i style={{ fontSize: "35px" }}>Search Planets</i></h1>
                     {this.state.countSearchHits > 5 && this.state.countTime == false && localStorage.getItem('userName') != "Luke Skywalker" ?
                         <div style={{ width: `600px`, height: `500px` }}>You have searched more than 5 times in one minute. Please wait for some time.</div> :
                         <div style={{ width: `1600px`, height: `5000px` }}>
                             <form>
-                                <div>Enter Planet Name : <input type="text" name="planetName" onChange={e => this.handleSubmit(e, e.target.value)} /></div>
+                                <div><i>Enter Planet Name : </i>
+                                    <input style={{
+                                        marginLeft: "50px", padding: "6px 15px", boxSizing: "border-box",
+                                        border: "2px solid grey", borderRadius: "4px"
+                                    }} type="text" name="planetName" onChange={e => this.handleSubmit(e, e.target.value)} /></div>
                             </form>
-                            {this.state.showLoader == true ? <div style={{ width: `600px`, height: `500px` }}>Loading...</div> :
-                                this.state.errorMessage == true ? <div style={{ width: `600px`, height: `500px` }}>No Results found</div> :
-                                    <div style={{ width: `1600px`, height: `5000px` }}>
+                            {this.state.showLoader == true ? <div style={{ width: `600px`, height: `500px`, marginLeft: "500px", marginTop: "50px" }}>Loading...</div> :
+                                this.state.errorMessage == true ? <div style={{ width: `600px`, height: `500px`, marginLeft: "500px", marginTop: "50px" }}>No Results found</div> :
+                                    <div style={{ width: `1600px`, height: `5000px`, marginTop: "50px" }}>
                                         <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
                                             {unknownPopulationPlanets}
                                             {knownPopulationPlanets}
                                         </div>
                                         {this.state.planetResults.length < this.state.count &&
-                                            <input type="button" value="Load More" onClick={this.handleLoadMore} />}
+                                            <input type="button" value="Load More" onClick={this.handleLoadMore} style={{
+                                                fontSize: "16px",
+                                                borderRadius: "30px",
+                                                backgroundColor: "white",
+                                                border: "none",
+                                                color: "black",
+                                                padding: "11px 32px",
+                                                textDecoration: "none",
+                                                margin: "20px 2px",
+                                                cursor: "pointer"
+                                              }} />}
                                     </div>
                             }
                         </div>
