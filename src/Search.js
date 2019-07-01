@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 import './App.css';
 
@@ -141,17 +140,7 @@ class Search extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <input type="button" name="logoutButton" value="Logout" onClick={this.handleLogout} style={{
-                        fontSize: "16px",
-                        borderRadius: "30px",
-                        backgroundColor: "#4CAF50",
-                        border: "none",
-                        color: "white",
-                        padding: "11px 32px",
-                        textDecoration: "none",
-                        margin: "45px 0px 10px 0px",
-                        cursor: "pointer"
-                    }} />
+                    <input type="button" name="logoutButton" value="Logout" onClick={this.handleLogout} className="button2"/>
                     <h1><i style={{ fontSize: "35px" }}>Search Planets</i></h1>
                     {this.state.countSearchHits > 5 && this.state.countTime == false && localStorage.getItem('userName') != "Luke Skywalker" ?
                         <div style={{ width: `600px`, height: `500px` }}>You have searched more than 5 times in one minute. Please wait for some time.</div> :
@@ -171,17 +160,7 @@ class Search extends Component {
                                             {knownPopulationPlanets}
                                         </div>
                                         {this.state.planetResults.length < this.state.count &&
-                                            <input type="button" value="Load More" onClick={this.handleLoadMore} style={{
-                                                fontSize: "16px",
-                                                borderRadius: "30px",
-                                                backgroundColor: "white",
-                                                border: "none",
-                                                color: "black",
-                                                padding: "11px 32px",
-                                                textDecoration: "none",
-                                                margin: "20px 2px",
-                                                cursor: "pointer"
-                                              }} />}
+                                            <input type="button" value="Load More" onClick={this.handleLoadMore} className="button_load_more"/>}
                                     </div>
                             }
                         </div>

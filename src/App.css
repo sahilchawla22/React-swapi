@@ -23,6 +23,43 @@
   color: #61dafb;
 }
 
+.button{
+  font-size: 16px;
+  border-radius: 30px;
+  background-color: #4CAF50;
+  border: none;
+  color: black;
+  padding: 11px 32px;
+  text-decoration: none;
+  margin: 20px 20px;
+  cursor: pointer;
+}
+
+.button2{
+  font-size: 16px;
+  border-radius: 30px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 11px 32px;
+  text-decoration: none;
+  margin: 45px 0px 10px 0px;
+  cursor: pointer;
+}
+
+.button_load_more{
+  font-size: 16px;
+  border-radius: 30px;
+  background-color:white;
+  border: none;
+  color: black;
+  padding: 11px 32px;
+  text-decoration: none;
+  margin: 20px 2px;
+  cursor: pointer;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

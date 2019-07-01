@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import Login from './Login';
 import Search from './Search';
+import NoMatch from './NoMatch';
 import PlanetDetails from './PlanetDetails'
 
 
@@ -14,6 +15,7 @@ class App extends Component{
         <Route path="/" exact component = {Login}/>
         <Route path="/search" component = {Search}/>
         <Route path="/planetDetails" component = {PlanetDetails}/>
+        <Route component={NoMatch}/>
       </div>
     </Router>
     );
