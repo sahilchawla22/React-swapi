@@ -143,7 +143,7 @@ class Search extends Component {
                     <input type="button" name="logoutButton" value="Logout" onClick={this.handleLogout} className="button2"/>
                     <h1><i style={{ fontSize: "35px", color:`black` }}>Search Planets</i></h1>
                     {this.state.countSearchHits > 5 && this.state.countTime == false && localStorage.getItem('userName') != "Luke Skywalker" ?
-                        <div style={{ width: `600px`, height: `500px` }}>You have searched more than 5 times in one minute. Please wait for some time.</div> :
+                        <div style={{ width: `600px`, height: `500px`, color:`black` }}>You have searched more than 5 times in one minute. Please wait for some time.</div> :
                         <div style={{ width: `1600px`, height: `5000px`, color:`black`}}>
                             <form>
                                 <div><i>Enter Planet Name : </i>
