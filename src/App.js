@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Login from './Login';
 import Search from './Search';
@@ -12,10 +12,12 @@ class App extends Component{
     return(
     <Router>
       <div>
-        <Route path="/" exact component = {Login}/>
-        <Route path="/search" component = {Search}/>
-        <Route path="/planetDetails" component = {PlanetDetails}/>
+        <Switch>
+        <Route exact path="/" exact component = {Login}/>
+        <Route exact path="/search" component = {Search}/>
+        <Route exact path="/planetDetails" component = {PlanetDetails}/>
         <Route component={NoMatch}/>
+        </Switch>
       </div>
     </Router>
     );

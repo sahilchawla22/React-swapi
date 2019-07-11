@@ -115,7 +115,7 @@ class Search extends Component {
                 <i>
                 <div style={{ display: "flex", flex: 1, flexGrow: 0, flexDirection: "column", width: `600px` }}>
                     <span onClick={e => this.handleFullDetails(e, item.name)} style={{ display: "flex", flex: 1, flexGrow: 0, width: `300px` }}>{count}) Name: {item.name}</span>
-                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `250px`, backgroundColor: "red",  borderRadius: "5px", margin:"10px" }}>Population: {item.population}</span>
+                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `250px`, backgroundColor: "#ff6666",  borderRadius: "5px", margin:"10px" }}>Population: {item.population}</span>
                 </div>
                 </i>
             );
@@ -130,7 +130,7 @@ class Search extends Component {
                 <i>
                 <div style={{ display: "flex", flex: 1, flexGrow: 0, flexDirection: "column", width: `600px` }}>
                     <span onClick={e => this.handleFullDetails(e, item.name)} style={{ display: "flex", flex: 1, flexGrow: 0, width: `300px` }}>{count}) Name: {item.name}</span>
-                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `${temp}px`, backgroundColor: "green",  borderRadius: "5px", margin:"5px" }}>Population: {Number(item.population)}</span>
+                    <span style={{ display: "flex", flex: 1, flexGrow: 0, width: `${temp}px`, backgroundColor: "#99e6ff",  borderRadius: "5px", margin:"5px" }}>Population: {Number(item.population)}</span>
                 </div>
                 </i>
             );
@@ -139,12 +139,12 @@ class Search extends Component {
 
         return (
             <div className="App">
-                <header className="App-header">
+                <header className="App-header2">
                     <input type="button" name="logoutButton" value="Logout" onClick={this.handleLogout} className="button2"/>
-                    <h1><i style={{ fontSize: "35px" }}>Search Planets</i></h1>
+                    <h1><i style={{ fontSize: "35px", color:`black` }}>Search Planets</i></h1>
                     {this.state.countSearchHits > 5 && this.state.countTime == false && localStorage.getItem('userName') != "Luke Skywalker" ?
                         <div style={{ width: `600px`, height: `500px` }}>You have searched more than 5 times in one minute. Please wait for some time.</div> :
-                        <div style={{ width: `1600px`, height: `5000px` }}>
+                        <div style={{ width: `1600px`, height: `5000px`, color:`black`}}>
                             <form>
                                 <div><i>Enter Planet Name : </i>
                                     <input style={{
